@@ -68,31 +68,20 @@ void	split_argv(char *str, int *arr_up, int *arr_down, int *arr_left, int *arr_r
 int	**create_matrix(void)
 {
 	int	i;
-	int **mat;
+    int j;
+	int mat[4][4];
 
 	i = 0;
-	mat = (int**)malloc(LEN * sizeof(int*));
+    j = 0;
     while (i < r)
 	{
-        arr[i] = (int*)malloc(LEN * sizeof(int));
+        while (j < r)
+        {
+            mat[i][j] = 0;
+            ++j;
+        }
 		++i;
 	}
 
 	return (mat);
-}
-
-void	delete_matrix(int **mat)
-{
-	int	i;
-
-	i = 0;
-	while (i < LEN)
-	{
-		free(*(mat + i));
-		*(mat + i) = NULL;
-		++i;
-	}
-
-	free(mat);
-	mat = NULL;
 }
